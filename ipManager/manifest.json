@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Lab IP Manager",
+  "version": "1.1.0",
+  "description": "Professional IP address manager for IT professionals and developers. Perfect for labs, production, and development environments.",
+  "author": "Dotan Israeli",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "IP Manager - Quick access to your servers, devices, and infrastructure",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options.html"
+}
